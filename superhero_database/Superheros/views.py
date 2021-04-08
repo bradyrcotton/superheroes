@@ -55,6 +55,10 @@ def update(request, superhero_id):
         Superhero.secondary_superhero_ability = request.POST.get('secondary_superhero_ability')
         Superhero.catch_phrase = request.POST.get('catch_phrase')
         superhero.save()
-        return HttpResponseRedirect(reverse('Superheros:index'))
+        context = {
+            'Superhero': superhero
+        }
+
+        return render(request, 'Superheros/update.html', context)
     else:
         return render(request, 'Superheros/update.html')

@@ -6,18 +6,18 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Superhero Index</title>
+    <title>Update SuperHero</title>
 </head>
 <body>
-
-<ul>
-    {% for Superhero in all_superheros %}
-    <li><h2>{{Superhero.name}}  </h2>
-        <a href="{% url 'Superheros:detail' Superhero.id %}"> Super Hero Details</a></li>
-     <li> <a href="{% url 'Superheros:update' Superhero.id %}">Update Superhero</a></li>
-    <li><a href="{% url 'Superheros:delete' Superhero.id %}">Delete Superhero</a></li>
-    {% endfor %}
-</ul>
+<form action="{% url 'Superheros:create_new_superhero' %}" method="post">
+     {% csrf_token %}
+    Name:<input type="text" name="name" id="name"><br>
+    Alter Ego:<input type="text" name="alter_ego" id="alter_ego"><br>
+    Primary Ability:<input type="text" name="primary_superhero_ability" id="primary_superhero_ability"><br>
+    Secondary Ability:<input type="text" name="secondary_superhero_ability" id="secondary_superhero_ability"><br>
+    Catch Phrase:<input type="text" name="catch_phrase" id="catch_phrase"><br>
+    <input type="submit" value="Update Superhero!">
+</form>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 </body>
 </html>
