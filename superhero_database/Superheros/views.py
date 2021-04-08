@@ -17,7 +17,7 @@ def index(request):
 def detail(request, superhero_id):
     superhero = Superhero.objects.get(pk=superhero_id)
     context = {
-        'superhero': superhero
+        'Superhero': superhero
     }
     return render(request, 'Superheros/detail.html', context)
 
