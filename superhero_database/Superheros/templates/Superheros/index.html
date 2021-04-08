@@ -9,7 +9,8 @@
     <title>Superhero Index</title>
 </head>
 <body>
-
+{% load static %}
+<img src="{% static 'Superheros/ironman.jpg' %}" alt="Iron Man">
 <ul>
     {% for Superhero in all_superheros %}
     <li><h2>{{Superhero.name}}  </h2>
